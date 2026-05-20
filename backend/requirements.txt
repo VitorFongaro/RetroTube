@@ -1,0 +1,28 @@
+fastapi
+uvicorn
+yt-dlp
+
+Create a simple and clean landing page for a website called “RetroTube” with a retro pixel art aesthetic.
+
+The page should have:
+
+* A dark retro background inspired by old CRT monitors or arcade systems
+* Pixel art style UI elements
+* The title “RetroTube” centered on the screen in large pixelated font
+* Below the title, a centered input bar where users can paste a YouTube link
+* Under the input, a pixel-style “Download” button
+* Minimalistic layout with lots of spacing
+* Retro neon color palette (purple, cyan, pink, dark blue)
+* Soft glow effects and subtle scanline/CRT vibe
+* Modern usability while keeping the nostalgic pixel-art look
+* Rounded pixel borders and 8-bit inspired interface elements
+* Small decorative pixel stars or floating particles in the background
+
+The design should feel:
+
+* clean
+* nostalgic
+* slightly futuristic
+* easy to use
+
+Do not make it cluttered. Keep everything centered and visually balanced.
