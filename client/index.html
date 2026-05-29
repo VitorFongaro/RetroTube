@@ -1,122 +1,37 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RetroTube</title>
+    <title>RetroTube - Retro Video Downloader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main class="screen" aria-label="RetroTube YouTube downloader">
-        <section class="scene">
-            <div class="corner tl"></div>
-            <div class="corner tr"></div>
-            <div class="corner bl"></div>
-            <div class="corner br"></div>
-
-            <div class="cloud c1"></div>
-            <div class="cloud c2"></div>
-            <div class="cloud c3"></div>
-            <div class="cloud c4"></div>
-            <div class="cloud c5"></div>
-            <div class="cloud c6"></div>
-            <div class="cloud c7"></div>
-            <div class="mountains"></div>
-            <div class="lake"></div>
-            <div class="hills"></div>
-            <div class="terrain"></div>
-
-            <div class="hud hud-left" aria-label="Lives">
-                <span class="heart"></span>
-                <span class="heart"></span>
-                <span class="heart"></span>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+    <div class="container">
+        <h1 class="title">RetroTube</h1>
+        <div class="main-box">
+            <div class="input-wrapper">
+                <input type="url" class="url-input" placeholder="INSERT YOUTUBE LINK HERE..." spellcheck="false"
+                    autocomplete="off">
             </div>
-
-            <div class="hud hud-right" aria-label="Score">
-                <span class="coin-small"></span>
-                <span>000123</span>
-            </div>
-
-            <span class="leaf l1"></span>
-            <span class="leaf l2"></span>
-            <span class="leaf l3"></span>
-            <span class="leaf l4"></span>
-            <span class="spark s1"></span>
-            <span class="spark s2"></span>
-            <span class="spark s3"></span>
-            <span class="spark s4"></span>
-            <span class="spark s5"></span>
-            <span class="spark s6"></span>
-
-            <header class="header">
-                <div class="gameboy" aria-hidden="true"></div>
-                <h1 class="logo" aria-label="RetroTube">
-                    <span class="retro">RETRO</span><span class="tube">TUBE</span>
-                </h1>
-                <div class="subtitle">
-                    <span class="angle-mark" aria-hidden="true">&lt;</span>
-                    <span>VIDEO DOWNLOADER</span>
-                    <span class="angle-mark" aria-hidden="true">&gt;</span>
-                </div>
-            </header>
-
-            <form class="panel">
-                <label class="url-box">
-                    <span class="youtube-icon" aria-hidden="true"></span>
-                    <input class="url-input" type="url" placeholder="PASTE YOUTUBE LINK HERE..." aria-label="YouTube link">
-                </label>
-                <button class="download" type="submit">
-                    <span class="download-icon" aria-hidden="true"></span>
-                    <span>DOWNLOAD</span>
-                </button>
-            </form>
-
-            <div class="left-cliff"></div>
-            <div class="right-cliff"></div>
-            <div class="pipe" aria-hidden="true"></div>
-            <div class="goomba" aria-hidden="true"></div>
-            <div class="sign">FAST<br>SIMPLE<br>RETRO</div>
-
-            <span class="coin one" aria-hidden="true"></span>
-            <span class="coin two" aria-hidden="true"></span>
-            <span class="coin three" aria-hidden="true"></span>
-            <div class="question" aria-hidden="true">?</div>
-            <div class="blocks" aria-hidden="true">
-                <span class="block"></span>
-                <span class="block"></span>
-                <span class="block"></span>
-                <span class="block"></span>
-                <span class="block"></span>
-                <span class="block"></span>
-                <span class="block"></span>
-                <span class="block"></span>
-            </div>
-            <div class="slime" aria-hidden="true"></div>
-
-            <div class="badges" aria-label="Benefits">
-                <div class="badge-item fast"><span class="badge-icon lightning" aria-hidden="true"></span><span>FAST</span></div>
-                <div class="badge-item safe"><span class="badge-icon shield" aria-hidden="true"></span><span>SAFE</span></div>
-                <div class="badge-item easy"><span class="badge-icon heart-icon" aria-hidden="true"></span><span>EASY</span></div>
-            </div>
-
-            <div class="flowers" aria-hidden="true">
-                <span class="flower f1"></span>
-                <span class="flower f2"></span>
-                <span class="flower f3"></span>
-                <span class="flower f4"></span>
-                <span class="flower f5"></span>
-            </div>
-
-            <footer class="footer">© 2026 RetroTube. All rights reserved.</footer>
-        </section>
-    </main>
-    <script>
-        document.querySelector(".panel").addEventListener("submit", (event) => {
-            event.preventDefault();
-        });
-    </script>
+            <button class="download-btn">
+                DOWNLOAD
+            </button>
+        </div>
+        <p class="footer-note">INSERT COIN TO PLAY</p>
+    </div>
 </body>
 </html>
