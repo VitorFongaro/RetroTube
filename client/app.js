@@ -1,4 +1,5 @@
 const form = document.querySelector("#download-form");
+const homeButton = document.querySelector("#home-button");
 const input = document.querySelector("#url-input");
 const scanButton = document.querySelector("#scan-button");
 const statusBox = document.querySelector("#game-status");
@@ -44,6 +45,19 @@ function clearOptions() {
     videoThumb.removeAttribute("src");
     videoThumb.alt = "";
     setProgress(null);
+}
+
+function resetHome() {
+    stopProgressTimer();
+    currentUrl = "";
+    form.reset();
+    input.disabled = false;
+    scanButton.disabled = false;
+    scanButton.textContent = "DOWNLOAD";
+    setStatus("");
+    clearOptions();
+    footerNote.textContent = "INSERT COIN TO PLAY";
+    input.focus();
 }
 
 function formatDuration(seconds) {
@@ -303,3 +317,5 @@ form.addEventListener("submit", async (event) => {
         setLoading(false);
     }
 });
+
+homeButton.addEventListener("click", resetHome);

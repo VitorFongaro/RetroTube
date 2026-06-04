@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P', monospace;
+    cursor: url("assets/cursors/default.png") 0 0, auto;
 }
 
 :root {
@@ -137,7 +138,11 @@ body::after {
     width: 100%;
 }
 
-.title {
+.title-button {
+    display: inline-block;
+    background: transparent;
+    border: 0;
+    outline: none;
     font-size: 3rem;
     margin-bottom: 50px;
     text-transform: uppercase;
@@ -147,6 +152,18 @@ body::after {
         3px 3px 0px var(--neon-pink),
         -3px -3px 0px var(--neon-cyan);
     animation: float 4s ease-in-out infinite;
+    cursor: url("assets/cursors/pointer.png") 0 0, pointer;
+    transition: filter 0.12s ease;
+}
+
+.title-button:hover,
+.title-button:focus-visible {
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.65));
+}
+
+.title-button:active {
+    animation: none;
+    transform: translateY(4px);
 }
 
 @keyframes float {
@@ -214,7 +231,7 @@ body::after {
     padding: 16px 32px;
     font-size: 1rem;
     font-weight: bold;
-    cursor: pointer;
+    cursor: url("assets/cursors/pointer.png") 0 0, pointer;
     position: relative;
     /* Pixel Corners styling */
     box-shadow:
@@ -228,7 +245,7 @@ body::after {
 
 .download-btn:disabled,
 .option-btn:disabled {
-    cursor: wait;
+    cursor: url("assets/cursors/default.png") 0 0, wait;
     opacity: 0.65;
 }
 
@@ -372,7 +389,7 @@ body::after {
     border: 4px solid var(--neon-cyan);
     background-color: var(--bg-dark);
     color: var(--neon-cyan);
-    cursor: pointer;
+    cursor: url("assets/cursors/pointer.png") 0 0, pointer;
     font-size: 0.68rem;
     box-shadow: 0 0 12px rgba(0, 240, 255, 0.22);
     transition: all 0.1s ease;
@@ -414,7 +431,7 @@ body::after {
 }
 
 @media (max-width: 480px) {
-    .title {
+    .title-button {
         font-size: 1.8rem;
         margin-bottom: 30px;
     }
