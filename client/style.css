@@ -22,7 +22,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
 }
 
@@ -131,8 +132,8 @@ body::after {
     position: relative;
     z-index: 5;
     text-align: center;
-    padding: 20px;
-    max-width: 650px;
+    padding: 40px 20px;
+    max-width: 760px;
     width: 100%;
 }
 
@@ -225,6 +226,12 @@ body::after {
     transition: all 0.1s ease;
 }
 
+.download-btn:disabled,
+.option-btn:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
 .download-btn:hover {
     background-color: var(--neon-pink);
     box-shadow:
@@ -242,6 +249,160 @@ body::after {
         4px 0 0 0 var(--bg-dark),
         0 -4px 0 0 var(--bg-dark),
         0 4px 0 0 var(--bg-dark);
+}
+
+.game-status {
+    min-height: 34px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-shadow: var(--glow-strength) var(--neon-cyan);
+}
+
+.game-status:empty {
+    display: none;
+}
+
+.game-status.win {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-strength) var(--neon-cyan);
+}
+
+.game-status.lose {
+    color: var(--neon-pink);
+    text-shadow: var(--glow-strength) var(--neon-pink);
+}
+
+.game-status.loading {
+    color: #fff;
+}
+
+.progress-shell {
+    width: 100%;
+    height: 18px;
+    padding: 3px;
+    background-color: var(--bg-dark);
+    border: 4px solid #fff;
+    box-shadow: var(--glow-strength) rgba(0, 240, 255, 0.28);
+}
+
+.progress-shell[hidden] {
+    display: none;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    box-shadow: var(--glow-strength) var(--neon-cyan);
+    transition: width 0.2s ease;
+}
+
+.result-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.result-panel[hidden] {
+    display: none;
+}
+
+.video-card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 4px solid #fff;
+    padding: 12px;
+    text-align: left;
+}
+
+.video-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 3px solid var(--neon-cyan);
+    background-color: #080512;
+}
+
+.video-thumb[hidden] {
+    display: none;
+}
+
+.video-title {
+    font-family: 'VT323', monospace;
+    font-size: 1.55rem;
+    line-height: 1;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.video-uploader {
+    margin-top: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--neon-cyan);
+    overflow-wrap: anywhere;
+}
+
+.option-zone {
+    width: 100%;
+    text-align: left;
+}
+
+.option-title {
+    margin-bottom: 12px;
+    font-size: 0.72rem;
+    color: var(--neon-pink);
+    text-shadow: var(--glow-strength) var(--neon-pink);
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+}
+
+.option-btn {
+    min-height: 82px;
+    padding: 14px 10px;
+    border: 4px solid var(--neon-cyan);
+    background-color: var(--bg-dark);
+    color: var(--neon-cyan);
+    cursor: pointer;
+    font-size: 0.68rem;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.22);
+    transition: all 0.1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    line-height: 1.15;
+}
+
+.option-btn:hover {
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(255, 0, 127, 0.5);
+}
+
+.option-main {
+    display: block;
+    color: inherit;
+}
+
+.option-sub {
+    display: block;
+    min-height: 18px;
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+    color: #fff;
+    overflow-wrap: anywhere;
 }
 
 .footer-note {
@@ -269,5 +430,29 @@ body::after {
 
     .main-box {
         padding: 30px 15px;
+    }
+
+    .game-status {
+        font-size: 0.8rem;
+    }
+
+    .video-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .option-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .option-btn {
+        min-height: 74px;
+        font-size: 0.56rem;
+        padding: 12px 6px;
+    }
+
+    .option-sub {
+        font-size: 1rem;
     }
 }

@@ -22,16 +22,38 @@
     </div>
     <div class="container">
         <h1 class="title">RetroTube</h1>
-        <div class="main-box">
+        <form class="main-box" id="download-form">
             <div class="input-wrapper">
-                <input type="url" class="url-input" placeholder="INSERT YOUTUBE LINK HERE..." spellcheck="false"
-                    autocomplete="off">
+                <input type="url" class="url-input" id="url-input" placeholder="INSERT YOUTUBE LINK HERE..."
+                    spellcheck="false" autocomplete="off" required>
             </div>
-            <button class="download-btn">
+            <button class="download-btn" id="scan-button" type="submit">
                 DOWNLOAD
             </button>
-        </div>
-        <p class="footer-note">INSERT COIN TO PLAY</p>
+            <div class="game-status" id="game-status" aria-live="polite"></div>
+            <div class="progress-shell" id="progress-shell" hidden>
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <section class="result-panel" id="result-panel" hidden>
+                <div class="video-card">
+                    <img class="video-thumb" id="video-thumb" alt="">
+                    <div class="video-meta">
+                        <p class="video-title" id="video-title"></p>
+                        <p class="video-uploader" id="video-uploader"></p>
+                    </div>
+                </div>
+                <div class="option-zone">
+                    <p class="option-title">VIDEO</p>
+                    <div class="option-grid" id="video-options"></div>
+                </div>
+                <div class="option-zone">
+                    <p class="option-title">MUSIC</p>
+                    <div class="option-grid" id="audio-options"></div>
+                </div>
+            </section>
+        </form>
+        <p class="footer-note" id="footer-note">INSERT COIN TO PLAY</p>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
