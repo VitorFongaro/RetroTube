@@ -146,6 +146,14 @@ body::after {
     width: 100%;
 }
 
+.gb-screen-content {
+    display: contents;
+}
+
+.gb-console-controls {
+    display: none;
+}
+
 .title-button {
     display: inline-block;
     background: transparent;

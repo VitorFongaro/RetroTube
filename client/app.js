@@ -30,6 +30,7 @@ let vhsTimer = null;
 let vhsStartedAt = null;
 let currentTheme = "default";
 let win95ClockTimer = null;
+let tapeMotionRequested = false;
 const themeNames = new Set(["default", "vhs", "cassette", "gameboy", "win95"]);
 const requestedTheme = new URLSearchParams(window.location.search).get("theme");
 const savedTheme = themeNames.has(requestedTheme)
@@ -45,6 +46,7 @@ function applyTheme(theme) {
     updateScanButtonLabel();
     updateVhsHud(theme === "vhs");
     updateWin95Clock(theme === "win95");
+    syncTapeMotion();
     if (theme !== "win95") {
         hideWin95Error();
     }
@@ -52,7 +54,31 @@ function applyTheme(theme) {
 }
 
 function getIdleButtonLabel() {
-    return currentTheme === "vhs" ? "INSERT" : "DOWNLOAD";
+    if (currentTheme === "vhs") {
+        return "INSERT";
+    }
+
+    if (currentTheme === "gameboy") {
+        return "PLAY";
+    }
+
+    if (currentTheme === "cassette") {
+        return "MIX IT";
+    }
+
+    return "DOWNLOAD";
+}
+
+function syncTapeMotion() {
+    document.body.classList.toggle(
+        "tape-playing",
+        currentTheme === "cassette" && tapeMotionRequested
+    );
+}
+
+function setTapeMotion(isActive) {
+    tapeMotionRequested = isActive;
+    syncTapeMotion();
 }
 
 function updateScanButtonLabel() {
@@ -157,7 +183,7 @@ function setProgress(percent) {
     progressBar.style.width = `${safePercent}%`;
     win95StatusFill.style.width = `${safePercent}%`;
     win95StatusText.textContent = safePercent >= 100
-        ? "Complete"
+        ? ""
         : `Working... ${Math.round(safePercent)}%`;
     win95StatusText.classList.toggle("is-progressing", safePercent > 0);
 }
@@ -173,6 +199,7 @@ function clearOptions() {
 
 function resetHome() {
     stopProgressTimer();
+    setTapeMotion(false);
     currentUrl = "";
     form.reset();
     input.disabled = false;
@@ -384,6 +411,7 @@ async function downloadOption(option, mode, button) {
         <span class="option-sub">0%</span>
     `;
     setProgress(0);
+    setTapeMotion(true);
     setStatus("PREPARING 0%", "loading");
     footerNote.textContent = "LOADING PRIZE...";
 
@@ -405,6 +433,7 @@ async function downloadOption(option, mode, button) {
         setProgress(null);
         showWin95Error();
     } finally {
+        setTapeMotion(false);
         button.disabled = false;
         setTimeout(() => {
             button.innerHTML = originalHtml;
@@ -417,6 +446,7 @@ form.addEventListener("submit", async (event) => {
     const url = input.value.trim();
 
     if (!url) {
+        setTapeMotion(false);
         setStatus("GAME OVER", "lose");
         footerNote.textContent = "INSERT A VALID LINK";
         showWin95Error();
@@ -427,6 +457,7 @@ form.addEventListener("submit", async (event) => {
     hideWin95Error();
     clearOptions();
     setProgress(15);
+    setTapeMotion(true);
     setStatus("SCANNING 15%", "loading");
     footerNote.textContent = "SCANNING SIGNAL...";
     setLoading(true, "WAIT...");
@@ -444,6 +475,7 @@ form.addEventListener("submit", async (event) => {
         setProgress(null);
         showWin95Error();
     } finally {
+        setTapeMotion(false);
         setLoading(false);
     }
 });

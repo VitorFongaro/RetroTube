@@ -321,12 +321,23 @@ body[data-theme="win95"] .win95-start-button {
 }
 
 body[data-theme="win95"] .win95-start-logo {
-    width: 22px;
-    height: 22px;
+    width: 21px;
+    height: 20px;
+    flex: 0 0 21px;
     background:
-        linear-gradient(90deg, #f00000 0 47%, transparent 47% 53%, #00a000 53%),
-        linear-gradient(#f00000 0 47%, transparent 47% 53%, #0055c8 53%);
-    transform: skewY(-7deg);
+        linear-gradient(90deg, transparent 0 9px, #000000 9px 11px, transparent 11px),
+        linear-gradient(transparent 0 8px, #000000 8px 10px, transparent 10px),
+        conic-gradient(
+            from 0deg,
+            #28a745 0 25%,
+            #f5c518 25% 50%,
+            #1674d1 50% 75%,
+            #f22920 75% 100%
+        );
+    border: 2px solid #000000;
+    box-shadow: 1px 1px 0 #ffffff;
+    filter: drop-shadow(1px 1px 0 #ffffff);
+    transform: skewY(-8deg);
 }
 
 body[data-theme="win95"] .win95-task-button {

@@ -54,60 +54,114 @@
         </div>
     </div>
     <div class="container">
-        <button class="title-button" id="home-button" type="button" aria-label="Voltar para a tela inicial">
-            RetroTube
-        </button>
-        <div class="theme-switcher" aria-label="Selecionar tema">
-            <button class="theme-button is-active" type="button" data-theme="default">NEON</button>
-            <button class="theme-button" type="button" data-theme="vhs">VHS</button>
-            <button class="theme-button" type="button" data-theme="cassette">TAPE</button>
-            <button class="theme-button" type="button" data-theme="gameboy">GB</button>
-            <button class="theme-button" type="button" data-theme="win95">95</button>
-        </div>
-        <form class="main-box" id="download-form" novalidate>
-            <div class="win95-titlebar">
-                <span class="win95-app-icon"></span>
-                <span class="win95-window-title">RetroTube Downloader</span>
-                <span class="win95-window-controls">
-                    <button type="button" tabindex="-1" aria-hidden="true">_</button>
-                    <button type="button" tabindex="-1" aria-hidden="true">&#9633;</button>
-                    <button type="button" tabindex="-1" aria-hidden="true">&#215;</button>
-                </span>
-            </div>
-            <div class="input-wrapper">
-                <input type="url" class="url-input" id="url-input" placeholder="INSERT YOUTUBE LINK HERE..."
-                    spellcheck="false" autocomplete="off" required>
-            </div>
-            <button class="download-btn" id="scan-button" type="submit">
-                DOWNLOAD
+        <div class="gb-screen-content">
+            <button class="title-button" id="home-button" type="button" aria-label="Voltar para a tela inicial">
+                RetroTube
             </button>
-            <div class="game-status" id="game-status" aria-live="polite"></div>
-            <div class="progress-shell" id="progress-shell" hidden>
-                <div class="progress-bar" id="progress-bar"></div>
+            <div class="theme-switcher" aria-label="Selecionar tema">
+                <button class="theme-button is-active" type="button" data-theme="default">NEON</button>
+                <button class="theme-button" type="button" data-theme="vhs">VHS</button>
+                <button class="theme-button" type="button" data-theme="cassette">TAPE</button>
+                <button class="theme-button" type="button" data-theme="gameboy">GB</button>
+                <button class="theme-button" type="button" data-theme="win95">95</button>
             </div>
-            <section class="result-panel" id="result-panel" hidden>
-                <div class="video-card">
-                    <img class="video-thumb" id="video-thumb" alt="">
-                    <div class="video-meta">
-                        <p class="video-title" id="video-title"></p>
-                        <p class="video-uploader" id="video-uploader"></p>
+            <form class="main-box" id="download-form" novalidate>
+                <div class="win95-titlebar">
+                    <span class="win95-app-icon"></span>
+                    <span class="win95-window-title">RetroTube Downloader</span>
+                    <span class="win95-window-controls">
+                        <button type="button" tabindex="-1" aria-hidden="true">_</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">&#9633;</button>
+                        <button type="button" tabindex="-1" aria-hidden="true">&#215;</button>
+                    </span>
+                </div>
+                <div class="input-wrapper">
+                    <input type="url" class="url-input" id="url-input" placeholder="INSERT YOUTUBE LINK HERE..."
+                        spellcheck="false" autocomplete="off" required>
+                </div>
+                <button class="download-btn" id="scan-button" type="submit">
+                    DOWNLOAD
+                </button>
+                <div class="game-status" id="game-status" aria-live="polite"></div>
+                <div class="progress-shell" id="progress-shell" hidden>
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <section class="result-panel" id="result-panel" hidden>
+                    <div class="video-card">
+                        <img class="video-thumb" id="video-thumb" alt="">
+                        <div class="video-meta">
+                            <p class="video-title" id="video-title"></p>
+                            <p class="video-uploader" id="video-uploader"></p>
+                        </div>
                     </div>
+                    <div class="option-zone">
+                        <p class="option-title">VIDEO</p>
+                        <div class="option-grid" id="video-options"></div>
+                    </div>
+                    <div class="option-zone">
+                        <p class="option-title">MUSIC</p>
+                        <div class="option-grid" id="audio-options"></div>
+                    </div>
+                </section>
+                <div class="win95-statusbar" id="win95-statusbar">
+                    <div class="win95-status-fill" id="win95-status-fill"></div>
+                    <span class="win95-status-text" id="win95-status-text">Ready</span>
                 </div>
-                <div class="option-zone">
-                    <p class="option-title">VIDEO</p>
-                    <div class="option-grid" id="video-options"></div>
-                </div>
-                <div class="option-zone">
-                    <p class="option-title">MUSIC</p>
-                    <div class="option-grid" id="audio-options"></div>
-                </div>
-            </section>
-            <div class="win95-statusbar" id="win95-statusbar">
-                <div class="win95-status-fill" id="win95-status-fill"></div>
-                <span class="win95-status-text" id="win95-status-text">Ready</span>
+            </form>
+            <p class="footer-note" id="footer-note">INSERT COIN TO PLAY</p>
+        </div>
+        <div class="gb-console-controls" aria-hidden="true">
+            <div class="gb-dpad">
+                <span class="gb-dpad-horizontal"></span>
+                <span class="gb-dpad-vertical"></span>
+                <span class="gb-dpad-center"></span>
             </div>
-        </form>
-        <p class="footer-note" id="footer-note">INSERT COIN TO PLAY</p>
+            <div class="gb-system-buttons">
+                <span class="gb-system-control"><i></i><b>SELECT</b></span>
+                <span class="gb-system-control"><i></i><b>START</b></span>
+            </div>
+            <div class="gb-action-buttons">
+                <span class="gb-action gb-action-b"><i>B</i></span>
+                <span class="gb-action gb-action-a"><i>A</i></span>
+            </div>
+            <div class="gb-speaker">
+                <i></i><i></i><i></i><i></i><i></i>
+            </div>
+        </div>
+        <div class="tape-console-controls" aria-hidden="true">
+            <div class="tape-deck-header">
+                <span class="tape-model">STEREO CASSETTE PLAYER</span>
+                <span class="tape-play-light">PLAY</span>
+            </div>
+            <div class="tape-cassette">
+                <div class="tape-label">
+                    <span class="tape-label-title">RETROTUBE MIX</span>
+                    <span class="tape-label-line"></span>
+                    <span class="tape-label-side">SIDE A</span>
+                </div>
+                <div class="tape-reel tape-reel-left"></div>
+                <div class="tape-reel tape-reel-right"></div>
+                <div class="tape-window">
+                    <span class="tape-magnetic"></span>
+                </div>
+            </div>
+            <div class="tape-meter-panel">
+                <div class="tape-equalizer">
+                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="tape-volume">
+                    <span>VOLUME</span>
+                    <div class="tape-volume-track"><i></i></div>
+                </div>
+            </div>
+            <div class="tape-physical-controls">
+                <span class="tape-control"><i>&#9664;&#9664;</i><b>REW</b></span>
+                <span class="tape-control tape-control-play"><i>&#9654;</i><b>PLAY</b></span>
+                <span class="tape-control"><i>&#9632;</i><b>STOP</b></span>
+                <span class="tape-control"><i>&#9654;&#9654;</i><b>F.FWD</b></span>
+                <span class="tape-control tape-control-eject"><i>&#9650;</i><b>EJECT</b></span>
+            </div>
+        </div>
     </div>
     <aside class="win95-error-dialog" id="win95-error-dialog" role="alertdialog" aria-labelledby="win95-error-title"
         aria-describedby="win95-error-message" hidden>

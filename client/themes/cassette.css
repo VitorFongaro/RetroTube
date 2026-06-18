@@ -1,43 +1,628 @@
 body[data-theme="cassette"] {
-    --bg-dark: #12100f;
-    --bg-card: #24211f;
-    --neon-pink: #ff4d5f;
-    --neon-cyan: #ffd34d;
-    --neon-purple: #6f6a61;
-    --text-light: #fff8df;
-    --text-dark: #12100f;
-    --border-light: #f2ead1;
-    --muted: #8f8575;
-    --scanline-bg: linear-gradient(rgba(255, 211, 77, 0.02) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 77, 95, 0.06), rgba(255, 211, 77, 0.04), rgba(0, 0, 0, 0.04));
-    --vignette-bg: radial-gradient(circle, transparent 56%, rgba(0, 0, 0, 0.45) 100%);
-    --button-shadow-color: rgba(255, 211, 77, 0.35);
-    --hover-shadow-color: rgba(255, 77, 95, 0.65);
+    --bg-dark: #0b0b09;
+    --bg-card: #171713;
+    --neon-pink: #e3472e;
+    --neon-cyan: #f5d21f;
+    --neon-purple: #756d2d;
+    --text-light: #fff4aa;
+    --text-dark: #111109;
+    --border-light: #f5d21f;
+    --muted: #a89731;
+    --scanline-bg: linear-gradient(rgba(245, 210, 31, 0.015) 50%, rgba(0, 0, 0, 0.18) 50%);
+    --vignette-bg: radial-gradient(circle, transparent 56%, rgba(0, 0, 0, 0.62) 100%);
+    --panel-shadow: none;
+    --button-shadow-color: rgba(245, 210, 31, 0.2);
+    --hover-shadow-color: rgba(227, 71, 46, 0.5);
+    align-items: center;
+    padding: 24px 16px;
+    background:
+        linear-gradient(135deg, rgba(245, 210, 31, 0.035) 25%, transparent 25%) 0 0 / 18px 18px,
+        #080806;
+}
+
+body[data-theme="cassette"] .stars {
+    display: none;
+}
+
+.tape-console-controls {
+    display: none;
+}
+
+body[data-theme="cassette"] .container {
+    max-width: 900px;
+    padding: 28px;
+    background:
+        linear-gradient(90deg, transparent 0 3%, rgba(255, 255, 255, 0.035) 3% 3.4%, transparent 3.4% 96.6%, rgba(255, 255, 255, 0.035) 96.6% 97%, transparent 97%),
+        linear-gradient(#20201b, #090908);
+    border: 5px solid;
+    border-color: #4d4d43 #050504 #050504 #4d4d43;
+    border-radius: 10px;
+    box-shadow:
+        inset 0 0 0 3px #11110f,
+        inset 0 0 0 7px #2b2b25,
+        0 22px 45px rgba(0, 0, 0, 0.62);
+}
+
+body[data-theme="cassette"] .container::before,
+body[data-theme="cassette"] .container::after {
+    content: "";
+    position: absolute;
+    z-index: 8;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #050504;
+    border-radius: 50%;
+    background: radial-gradient(circle, #151513 0 22%, #6f6f61 24% 45%, #24241f 47%);
+    box-shadow: 0 0 0 1px #777763;
+}
+
+body[data-theme="cassette"] .container::before {
+    top: 15px;
+    left: 15px;
+}
+
+body[data-theme="cassette"] .container::after {
+    top: 15px;
+    right: 15px;
+}
+
+body[data-theme="cassette"] .gb-screen-content {
+    position: relative;
+    display: block;
+    padding: 30px 32px 26px;
+    background:
+        linear-gradient(rgba(245, 210, 31, 0.035), transparent 20%),
+        #11110e;
+    border: 4px solid;
+    border-color: #050504 #48483d #48483d #050504;
+    box-shadow:
+        inset 0 0 0 4px #1f1f1a,
+        inset 0 0 28px rgba(0, 0, 0, 0.8);
+}
+
+body[data-theme="cassette"] .gb-screen-content::before {
+    content: none;
+}
+
+body[data-theme="cassette"] .title-button {
+    color: #f5d21f;
+    margin-bottom: 20px;
+    text-shadow:
+        3px 3px 0 #6c210f,
+        -2px -2px 0 #5d5317;
+    animation: none;
+}
+
+body[data-theme="cassette"] .title-button:hover,
+body[data-theme="cassette"] .title-button:focus-visible {
+    filter: drop-shadow(0 0 8px rgba(245, 210, 31, 0.45));
+}
+
+body[data-theme="cassette"] .theme-switcher {
+    margin-bottom: 26px;
+}
+
+body[data-theme="cassette"] .theme-button {
+    min-height: 37px;
+    border: 2px solid #8e812b;
+    background: #171713;
+    color: #bdae4c;
+    box-shadow: inset 0 -3px 0 #070706;
+}
+
+body[data-theme="cassette"] .theme-button:hover,
+body[data-theme="cassette"] .theme-button:focus-visible,
+body[data-theme="cassette"] .theme-button.is-active {
+    border-color: #f5d21f;
+    background: #f5d21f;
+    color: #111109;
+    transform: none;
 }
 
 body[data-theme="cassette"] .main-box {
-    border-style: double;
+    gap: 22px;
+    padding: 28px 24px;
+    overflow: visible;
+    background: #171713;
+    border: 3px solid;
+    border-color: #4d4d42 #050504 #050504 #4d4d42;
+    box-shadow:
+        inset 0 0 0 3px #0b0b09,
+        inset 0 0 22px rgba(0, 0, 0, 0.55);
 }
 
 body[data-theme="cassette"] .main-box::before,
 body[data-theme="cassette"] .main-box::after {
+    content: none;
+}
+
+body[data-theme="cassette"] .url-input {
+    padding: 14px 16px;
+    background: #080807;
+    border: 3px solid #8e812b;
+    color: #f5d21f;
+    box-shadow: inset 3px 3px 0 #000000;
+}
+
+body[data-theme="cassette"] .url-input::placeholder {
+    color: #746b2c;
+}
+
+body[data-theme="cassette"] .url-input:focus {
+    border-color: #f5d21f;
+    color: #fff4aa;
+    box-shadow: inset 3px 3px 0 #000000, 0 0 10px rgba(245, 210, 31, 0.2);
+}
+
+body[data-theme="cassette"] .download-btn,
+body[data-theme="cassette"] .option-btn {
+    border: 3px solid;
+    border-color: #6f681f #090907 #090907 #9e922d;
+    border-radius: 2px;
+    background: #f5d21f;
+    color: #111109;
+    box-shadow: 4px 4px 0 #050504;
+    text-transform: uppercase;
+}
+
+body[data-theme="cassette"] .download-btn:hover,
+body[data-theme="cassette"] .option-btn:hover {
+    background: #e3472e;
+    border-color: #f27055 #65170b #65170b #f27055;
+    color: #fff7bd;
+    box-shadow: 4px 4px 0 #050504;
+}
+
+body[data-theme="cassette"] .game-status,
+body[data-theme="cassette"] .game-status.win,
+body[data-theme="cassette"] .game-status.lose,
+body[data-theme="cassette"] .game-status.loading {
+    color: #f5d21f;
+    text-shadow: none;
+}
+
+body[data-theme="cassette"] .progress-shell {
+    height: 16px;
+    padding: 2px;
+    background: #080807;
+    border: 2px solid #8e812b;
+    box-shadow: none;
+}
+
+body[data-theme="cassette"] .progress-bar {
+    background: repeating-linear-gradient(90deg, #f5d21f 0 12px, #8e812b 12px 14px);
+    box-shadow: none;
+}
+
+body[data-theme="cassette"] .video-card {
+    background: #0a0a08;
+    border-color: #8e812b;
+}
+
+body[data-theme="cassette"] .video-thumb {
+    border-color: #f5d21f;
+}
+
+body[data-theme="cassette"] .video-title,
+body[data-theme="cassette"] .video-uploader,
+body[data-theme="cassette"] .option-title,
+body[data-theme="cassette"] .option-sub {
+    color: #f5d21f;
+    text-shadow: none;
+}
+
+body[data-theme="cassette"] .footer-note {
+    display: none;
+}
+
+body[data-theme="cassette"] .tape-console-controls {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    gap: 18px;
+    margin-top: 20px;
+    padding: 40px 28px 86px;
+    background:
+        linear-gradient(90deg, transparent 49.5%, rgba(245, 210, 31, 0.06) 49.5% 50.5%, transparent 50.5%),
+        #0f0f0c;
+    border: 4px solid;
+    border-color: #050504 #46463b #46463b #050504;
+    box-shadow: inset 0 0 0 3px #1f1f1a;
+    pointer-events: none;
+}
+
+body[data-theme="cassette"] .tape-deck-header {
+    position: absolute;
+    inset: 10px 16px auto;
+    display: flex;
+    justify-content: space-between;
+    color: #91862e;
+    font-size: 0.48rem;
+    letter-spacing: 1px;
+}
+
+body[data-theme="cassette"] .tape-play-light {
+    position: relative;
+    padding-left: 17px;
+    color: #4b451d;
+}
+
+body[data-theme="cassette"] .tape-play-light::before {
     content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    margin: -1px 0 0 -16px;
+    border-radius: 50%;
+    background: #3e3a19;
+    box-shadow: inset 1px 1px 0 #111109;
+}
+
+body[data-theme="cassette"] .tape-cassette {
+    position: relative;
+    min-height: 230px;
+    background:
+        linear-gradient(#22221d 0 16%, transparent 16% 84%, #080807 84%),
+        #151512;
+    border: 5px solid;
+    border-color: #4e4e43 #040403 #040403 #4e4e43;
+    clip-path: polygon(2% 0, 98% 0, 100% 8%, 100% 92%, 96% 100%, 4% 100%, 0 92%, 0 8%);
+    box-shadow: inset 0 0 0 4px #080807;
+}
+
+body[data-theme="cassette"] .tape-label {
+    position: absolute;
+    inset: 20px 12% auto;
+    height: 62px;
+    padding: 9px 16px;
+    background: #d8cf91;
+    border: 3px solid #090907;
+    color: #282414;
+}
+
+body[data-theme="cassette"] .tape-label-title {
+    display: block;
+    font-size: 0.62rem;
+    text-align: center;
+}
+
+body[data-theme="cassette"] .tape-label-line {
+    display: block;
+    height: 2px;
+    margin: 9px 0 6px;
+    background: #e3472e;
+    box-shadow: 0 5px 0 #5b5528;
+}
+
+body[data-theme="cassette"] .tape-label-side {
+    display: block;
+    font: bold 0.62rem Arial, sans-serif;
+    text-align: right;
+}
+
+body[data-theme="cassette"] .tape-reel {
+    position: absolute;
+    z-index: 3;
+    top: 103px;
     width: 78px;
     height: 78px;
-    border: 6px solid var(--neon-purple);
+    border: 6px solid #d7d1a7;
     border-radius: 50%;
     background:
-        radial-gradient(circle, var(--bg-dark) 0 18%, transparent 19%),
-        repeating-conic-gradient(from 0deg, var(--neon-cyan) 0 12deg, transparent 12deg 24deg);
-    opacity: 0.36;
+        radial-gradient(circle, #090907 0 19%, transparent 20%),
+        repeating-conic-gradient(#d7d1a7 0 12deg, #161612 12deg 27deg);
+    box-shadow:
+        0 0 0 4px #090907,
+        inset 0 0 0 5px #36362d;
+}
+
+body[data-theme="cassette"] .tape-reel-left {
+    left: 14%;
+}
+
+body[data-theme="cassette"] .tape-reel-right {
+    right: 14%;
+}
+
+body[data-theme="cassette"] .tape-window {
     position: absolute;
-    bottom: 18px;
-    z-index: 1;
+    left: 28%;
+    right: 28%;
+    top: 118px;
+    height: 49px;
+    overflow: hidden;
+    background: #050504;
+    border: 4px solid #3e3e35;
 }
 
-body[data-theme="cassette"] .main-box::before {
-    left: 28px;
+body[data-theme="cassette"] .tape-magnetic {
+    position: absolute;
+    left: -20%;
+    right: -20%;
+    bottom: 6px;
+    height: 10px;
+    border: 3px solid #4a2516;
+    border-top: 0;
+    border-radius: 0 0 50% 50%;
 }
 
-body[data-theme="cassette"] .main-box::after {
-    right: 28px;
+body[data-theme="cassette"] .tape-meter-panel {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 20px;
+    min-width: 0;
+}
+
+body[data-theme="cassette"] .tape-equalizer {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 9px;
+    min-height: 145px;
+    padding: 18px;
+    background:
+        repeating-linear-gradient(0deg, transparent 0 14px, rgba(245, 210, 31, 0.1) 14px 16px),
+        #080807;
+    border: 3px solid;
+    border-color: #050504 #45453a #45453a #050504;
+}
+
+body[data-theme="cassette"] .tape-equalizer i {
+    width: 13px;
+    height: 22%;
+    background: repeating-linear-gradient(0deg, #f5d21f 0 7px, transparent 7px 10px);
+    filter: saturate(0.4);
+    transform-origin: bottom;
+}
+
+body[data-theme="cassette"] .tape-equalizer i:nth-child(2),
+body[data-theme="cassette"] .tape-equalizer i:nth-child(6) {
+    height: 42%;
+}
+
+body[data-theme="cassette"] .tape-equalizer i:nth-child(3),
+body[data-theme="cassette"] .tape-equalizer i:nth-child(5) {
+    height: 68%;
+}
+
+body[data-theme="cassette"] .tape-equalizer i:nth-child(4) {
+    height: 88%;
+}
+
+body[data-theme="cassette"] .tape-volume {
+    color: #94892f;
+    font-size: 0.46rem;
+}
+
+body[data-theme="cassette"] .tape-volume-track {
+    position: relative;
+    height: 18px;
+    margin-top: 10px;
+    background: repeating-linear-gradient(90deg, #5c5624 0 3px, transparent 3px 12px);
+    border-bottom: 3px solid #5b5528;
+}
+
+body[data-theme="cassette"] .tape-volume-track i {
+    position: absolute;
+    top: -5px;
+    left: 63%;
+    width: 14px;
+    height: 26px;
+    background: #f5d21f;
+    border: 3px solid #070706;
+}
+
+body[data-theme="cassette"] .tape-physical-controls {
+    position: absolute;
+    inset: auto 24px 14px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+}
+
+body[data-theme="cassette"] .tape-control {
+    display: grid;
+    justify-items: center;
+    gap: 7px;
+}
+
+body[data-theme="cassette"] .tape-control i {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 38px;
+    border: 3px solid;
+    border-color: #545449 #050504 #050504 #545449;
+    background: #1c1c18;
+    color: #b7aa42;
+    font-style: normal;
+    font-size: 0.72rem;
+    box-shadow: 0 4px 0 #030302;
+}
+
+body[data-theme="cassette"] .tape-control b {
+    color: #786f2b;
+    font-size: 0.42rem;
+}
+
+body[data-theme="cassette"] .tape-control-play i {
+    background: #f5d21f;
+    color: #111109;
+    border-color: #fff06d #6b5c08 #6b5c08 #fff06d;
+}
+
+body[data-theme="cassette"].tape-playing .tape-play-light {
+    color: #f5d21f;
+    text-shadow: 0 0 7px rgba(245, 210, 31, 0.8);
+}
+
+body[data-theme="cassette"].tape-playing .tape-play-light::before {
+    background: #f5d21f;
+    box-shadow: 0 0 9px rgba(245, 210, 31, 0.95);
+}
+
+body[data-theme="cassette"].tape-playing .tape-reel-left {
+    animation: tape-spin-left 1.15s linear infinite;
+}
+
+body[data-theme="cassette"].tape-playing .tape-reel-right {
+    animation: tape-spin-right 1.15s linear infinite;
+}
+
+body[data-theme="cassette"].tape-playing .tape-equalizer i {
+    filter: none;
+    animation: tape-eq 0.8s steps(4, end) infinite alternate;
+}
+
+body[data-theme="cassette"].tape-playing .tape-equalizer i:nth-child(2) {
+    animation-delay: -0.35s;
+}
+
+body[data-theme="cassette"].tape-playing .tape-equalizer i:nth-child(3) {
+    animation-delay: -0.6s;
+}
+
+body[data-theme="cassette"].tape-playing .tape-equalizer i:nth-child(4) {
+    animation-delay: -0.2s;
+}
+
+body[data-theme="cassette"].tape-playing .tape-equalizer i:nth-child(5) {
+    animation-delay: -0.48s;
+}
+
+body[data-theme="cassette"].tape-playing .tape-equalizer i:nth-child(6) {
+    animation-delay: -0.12s;
+}
+
+body[data-theme="cassette"].tape-playing .tape-equalizer i:nth-child(7) {
+    animation-delay: -0.7s;
+}
+
+@keyframes tape-spin-left {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes tape-spin-right {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes tape-eq {
+    0% {
+        transform: scaleY(0.35);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@media (max-width: 760px) {
+    body[data-theme="cassette"] {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    body[data-theme="cassette"] .container {
+        width: 100%;
+        min-width: 0;
+        max-width: calc(100vw - 20px);
+        padding: 18px;
+    }
+
+    body[data-theme="cassette"] .gb-screen-content {
+        min-width: 0;
+        padding: 22px 16px;
+    }
+
+    body[data-theme="cassette"] .theme-switcher,
+    body[data-theme="cassette"] .main-box,
+    body[data-theme="cassette"] .tape-console-controls {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    body[data-theme="cassette"] .title-button {
+        font-size: 1.9rem;
+    }
+
+    body[data-theme="cassette"] .tape-console-controls {
+        grid-template-columns: 1fr;
+        padding: 38px 18px 86px;
+    }
+
+    body[data-theme="cassette"] .tape-meter-panel {
+        grid-template-columns: 1fr 150px;
+        grid-template-rows: auto;
+        align-items: center;
+    }
+
+    body[data-theme="cassette"] .tape-equalizer {
+        height: 95px;
+        min-height: 95px;
+    }
+
+    body[data-theme="cassette"] .tape-control i {
+        height: 34px;
+        font-size: 0.58rem;
+    }
+
+    body[data-theme="cassette"] .tape-control b {
+        font-size: 0.36rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body[data-theme="cassette"] .container {
+        padding: 10px;
+    }
+
+    body[data-theme="cassette"] .gb-screen-content {
+        padding-inline: 10px;
+    }
+
+    body[data-theme="cassette"] .title-button {
+        font-size: 1.45rem;
+    }
+
+    body[data-theme="cassette"] .tape-cassette {
+        min-height: 190px;
+    }
+
+    body[data-theme="cassette"] .tape-label {
+        inset-inline: 8%;
+    }
+
+    body[data-theme="cassette"] .tape-reel {
+        top: 98px;
+        width: 62px;
+        height: 62px;
+    }
+
+    body[data-theme="cassette"] .tape-window {
+        top: 111px;
+    }
+
+    body[data-theme="cassette"] .tape-meter-panel {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-theme="cassette"] .tape-physical-controls {
+        gap: 4px;
+        inset-inline: 10px;
+    }
+
+    body[data-theme="cassette"] .tape-control i {
+        height: 30px;
+        padding: 0 2px;
+        font-size: 0.45rem;
+    }
+
+    body[data-theme="cassette"] .tape-control b {
+        display: none;
+    }
 }

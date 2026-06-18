@@ -257,8 +257,11 @@ body[data-theme="vhs"] .main-box {
 }
 
 body[data-theme="vhs"] .footer-note::before {
-    content: "REC ";
-    color: var(--neon-pink);
+    content: none;
+}
+
+body[data-theme="vhs"] .footer-note {
+    display: none;
 }
 
 @media (max-width: 760px) {
