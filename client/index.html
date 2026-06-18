@@ -9,9 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="themes/vhs.css">
+    <link rel="stylesheet" href="themes/cassette.css">
+    <link rel="stylesheet" href="themes/gameboy.css">
+    <link rel="stylesheet" href="themes/win95.css">
 </head>
 
 <body>
+    <div class="vhs-hud" aria-hidden="true">
+        <div class="vhs-rec">
+            <span class="vhs-rec-dot"></span>
+            <span>REC</span>
+        </div>
+        <div class="vhs-playback">
+            <span>PLAY &#9654;</span>
+            <time class="vhs-recording-time" id="vhs-recording-time">00:00:00</time>
+            <time class="vhs-recording-date" id="vhs-recording-date"></time>
+        </div>
+    </div>
     <div class="stars">
         <div class="star"></div>
         <div class="star"></div>
@@ -20,11 +35,45 @@
         <div class="star"></div>
         <div class="star"></div>
     </div>
+    <div class="win95-desktop" aria-hidden="true">
+        <div class="win95-desktop-icon">
+            <span class="win95-icon win95-computer-icon"></span>
+            <span>My Computer</span>
+        </div>
+        <div class="win95-desktop-icon">
+            <span class="win95-icon win95-folder-icon"></span>
+            <span>Downloads</span>
+        </div>
+        <div class="win95-desktop-icon">
+            <span class="win95-icon win95-tape-icon"></span>
+            <span>Tapes</span>
+        </div>
+        <div class="win95-desktop-icon">
+            <span class="win95-icon win95-bin-icon"></span>
+            <span>Recycle Bin</span>
+        </div>
+    </div>
     <div class="container">
         <button class="title-button" id="home-button" type="button" aria-label="Voltar para a tela inicial">
             RetroTube
         </button>
-        <form class="main-box" id="download-form">
+        <div class="theme-switcher" aria-label="Selecionar tema">
+            <button class="theme-button is-active" type="button" data-theme="default">NEON</button>
+            <button class="theme-button" type="button" data-theme="vhs">VHS</button>
+            <button class="theme-button" type="button" data-theme="cassette">TAPE</button>
+            <button class="theme-button" type="button" data-theme="gameboy">GB</button>
+            <button class="theme-button" type="button" data-theme="win95">95</button>
+        </div>
+        <form class="main-box" id="download-form" novalidate>
+            <div class="win95-titlebar">
+                <span class="win95-app-icon"></span>
+                <span class="win95-window-title">RetroTube Downloader</span>
+                <span class="win95-window-controls">
+                    <button type="button" tabindex="-1" aria-hidden="true">_</button>
+                    <button type="button" tabindex="-1" aria-hidden="true">&#9633;</button>
+                    <button type="button" tabindex="-1" aria-hidden="true">&#215;</button>
+                </span>
+            </div>
             <div class="input-wrapper">
                 <input type="url" class="url-input" id="url-input" placeholder="INSERT YOUTUBE LINK HERE..."
                     spellcheck="false" autocomplete="off" required>
@@ -53,8 +102,35 @@
                     <div class="option-grid" id="audio-options"></div>
                 </div>
             </section>
+            <div class="win95-statusbar" id="win95-statusbar">
+                <div class="win95-status-fill" id="win95-status-fill"></div>
+                <span class="win95-status-text" id="win95-status-text">Ready</span>
+            </div>
         </form>
         <p class="footer-note" id="footer-note">INSERT COIN TO PLAY</p>
+    </div>
+    <aside class="win95-error-dialog" id="win95-error-dialog" role="alertdialog" aria-labelledby="win95-error-title"
+        aria-describedby="win95-error-message" hidden>
+        <div class="win95-dialog-titlebar">
+            <span id="win95-error-title">Invalid link</span>
+            <button class="win95-dialog-close" id="win95-dialog-close" type="button" aria-label="Fechar">&#215;</button>
+        </div>
+        <div class="win95-dialog-content">
+            <span class="win95-error-icon" aria-hidden="true">&#215;</span>
+            <p id="win95-error-message">Please enter a valid YouTube link.</p>
+        </div>
+        <button class="win95-dialog-ok" id="win95-dialog-ok" type="button">OK</button>
+    </aside>
+    <div class="win95-taskbar">
+        <button class="win95-start-button" id="win95-start-button" type="button">
+            <span class="win95-start-logo" aria-hidden="true"></span>
+            Start
+        </button>
+        <button class="win95-task-button" id="win95-task-button" type="button">
+            <span class="win95-app-icon" aria-hidden="true"></span>
+            RetroTube Downloader
+        </button>
+        <time class="win95-clock" id="win95-clock"></time>
     </div>
     <script src="app.js"></script>
 </body>

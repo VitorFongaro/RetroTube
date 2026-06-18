@@ -1,0 +1,35 @@
+body[data-theme="gameboy"] {
+    --bg-dark: #0f1f16;
+    --bg-card: #213b22;
+    --neon-pink: #9bbc0f;
+    --neon-cyan: #c7f05a;
+    --neon-purple: #306230;
+    --text-light: #d8f878;
+    --text-dark: #0f380f;
+    --border-light: #d8f878;
+    --muted: #8bac0f;
+    --scanline-bg: linear-gradient(rgba(15, 56, 15, 0) 50%, rgba(15, 56, 15, 0.24) 50%);
+    --vignette-bg: radial-gradient(circle, transparent 58%, rgba(15, 56, 15, 0.45) 100%);
+    --button-shadow-color: rgba(216, 248, 120, 0.3);
+    --hover-shadow-color: rgba(155, 188, 15, 0.65);
+}
+
+body[data-theme="gameboy"] .title-button {
+    text-shadow:
+        3px 3px 0 var(--text-dark),
+        -3px -3px 0 var(--muted);
+}
+
+body[data-theme="gameboy"] .star {
+    width: 6px;
+    height: 6px;
+    opacity: 0.35;
+    animation-duration: 3s;
+}
+
+body[data-theme="gameboy"] .download-btn,
+body[data-theme="gameboy"] .theme-button,
+body[data-theme="gameboy"] .option-btn {
+    border-radius: 0;
+    text-transform: uppercase;
+}

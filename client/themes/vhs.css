@@ -1,0 +1,290 @@
+body[data-theme="vhs"] {
+    --bg-dark: #090406;
+    --bg-card: #16080d;
+    --neon-pink: #ff1744;
+    --neon-cyan: #f4f0e6;
+    --neon-purple: #8c1028;
+    --text-light: #fff4ee;
+    --text-dark: #090406;
+    --border-light: #fff4ee;
+    --muted: #7c3645;
+    --scanline-bg: linear-gradient(rgba(0, 0, 0, 0) 47%, rgba(255, 23, 68, 0.12) 50%, rgba(0, 0, 0, 0.25) 53%), linear-gradient(90deg, rgba(255, 0, 0, 0.08), rgba(0, 255, 160, 0.03), rgba(0, 40, 255, 0.08));
+    --vignette-bg: radial-gradient(circle, transparent 48%, rgba(0, 0, 0, 0.72) 100%);
+    --button-shadow-color: rgba(255, 23, 68, 0.42);
+    --hover-shadow-color: rgba(255, 244, 238, 0.65);
+}
+
+body[data-theme="vhs"] .star {
+    display: none;
+}
+
+body[data-theme="vhs"] .stars {
+    position: fixed;
+    overflow: hidden;
+    opacity: 1;
+}
+
+body[data-theme="vhs"] .stars::before,
+body[data-theme="vhs"] .stars::after {
+    content: "";
+    position: absolute;
+    left: -8%;
+    width: 116%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+body[data-theme="vhs"] .stars::before {
+    top: 18%;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0 5%,
+            rgba(255, 244, 238, 0.9) 9% 14%,
+            transparent 18% 27%,
+            rgba(255, 23, 68, 0.85) 31% 48%,
+            rgba(0, 255, 224, 0.65) 49% 53%,
+            transparent 57% 74%,
+            rgba(255, 244, 238, 0.75) 80% 94%,
+            transparent 98%
+        );
+    box-shadow:
+        0 4px 0 rgba(255, 23, 68, 0.32),
+        0 8px 0 rgba(0, 255, 224, 0.18);
+    filter: blur(0.4px);
+    animation: vhs-tracking-line 7.3s steps(1, end) infinite;
+}
+
+body[data-theme="vhs"] .stars::after {
+    top: 68%;
+    height: 10px;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.55) 0 1px,
+            rgba(255, 23, 68, 0.35) 1px 2px,
+            transparent 2px 4px
+        );
+    box-shadow:
+        22vw 0 0 rgba(255, 23, 68, 0.22),
+        -18vw 3px 0 rgba(0, 255, 224, 0.2);
+    filter: blur(0.7px);
+    transform: skewX(-18deg);
+    animation: vhs-static-tear 5.6s steps(1, end) infinite;
+}
+
+@keyframes vhs-tracking-line {
+    0%,
+    8%,
+    12%,
+    38%,
+    43%,
+    71%,
+    75%,
+    100% {
+        opacity: 0;
+    }
+
+    9% {
+        top: 18%;
+        opacity: 0.82;
+        transform: translateX(-4%);
+    }
+
+    10% {
+        top: 19%;
+        opacity: 0.32;
+        transform: translateX(7%);
+    }
+
+    39% {
+        top: 52%;
+        opacity: 0.65;
+        transform: translateX(2%);
+    }
+
+    40% {
+        top: 51%;
+        opacity: 0.25;
+        transform: translateX(-6%);
+    }
+
+    72% {
+        top: 84%;
+        opacity: 0.9;
+        transform: translateX(5%);
+    }
+
+    73% {
+        top: 82%;
+        opacity: 0.4;
+        transform: translateX(-2%);
+    }
+}
+
+@keyframes vhs-static-tear {
+    0%,
+    17%,
+    22%,
+    48%,
+    53%,
+    81%,
+    86%,
+    100% {
+        opacity: 0;
+    }
+
+    18% {
+        top: 66%;
+        opacity: 0.68;
+        transform: translateX(-9%) skewX(-18deg) scaleY(0.5);
+    }
+
+    19% {
+        top: 67%;
+        opacity: 0.9;
+        transform: translateX(6%) skewX(12deg) scaleY(1.2);
+    }
+
+    20% {
+        top: 69%;
+        opacity: 0.28;
+        transform: translateX(-2%) skewX(-6deg);
+    }
+
+    49% {
+        top: 30%;
+        opacity: 0.52;
+        transform: translateX(8%) skewX(8deg) scaleY(0.35);
+    }
+
+    50% {
+        top: 32%;
+        opacity: 0.85;
+        transform: translateX(-5%) skewX(-14deg);
+    }
+
+    82% {
+        top: 90%;
+        opacity: 0.8;
+        transform: translateX(3%) skewX(-18deg) scaleY(1.4);
+    }
+
+    83% {
+        top: 88%;
+        opacity: 0.35;
+        transform: translateX(-7%) skewX(16deg) scaleY(0.5);
+    }
+}
+
+.vhs-hud {
+    display: none;
+}
+
+body[data-theme="vhs"] .vhs-hud {
+    position: fixed;
+    inset: 42px 52px auto;
+    z-index: 8;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: #fff4ee;
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-shadow:
+        2px 0 0 rgba(0, 255, 224, 0.55),
+        -2px 0 0 rgba(255, 23, 68, 0.75),
+        0 0 8px rgba(255, 244, 238, 0.35);
+    pointer-events: none;
+}
+
+body[data-theme="vhs"] .vhs-rec {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ff274f;
+    text-shadow: 0 0 10px rgba(255, 23, 68, 0.9);
+}
+
+body[data-theme="vhs"] .vhs-rec-dot {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    background: #ff1744;
+    border-radius: 50%;
+    box-shadow:
+        0 0 8px #ff1744,
+        0 0 18px rgba(255, 23, 68, 0.85);
+    animation: vhs-record-pulse 1s steps(2, end) infinite;
+}
+
+body[data-theme="vhs"] .vhs-playback {
+    display: grid;
+    justify-items: end;
+    gap: 8px;
+}
+
+body[data-theme="vhs"] .vhs-recording-time,
+body[data-theme="vhs"] .vhs-recording-date {
+    font: inherit;
+    color: inherit;
+}
+
+@keyframes vhs-record-pulse {
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0.18;
+    }
+}
+
+body[data-theme="vhs"] .title-button {
+    text-shadow:
+        4px 0 0 #ff1744,
+        -4px 0 0 #00ffe0,
+        0 0 18px rgba(255, 23, 68, 0.6);
+}
+
+body[data-theme="vhs"] .main-box {
+    transform: skewX(-0.35deg);
+}
+
+body[data-theme="vhs"] .footer-note::before {
+    content: "REC ";
+    color: var(--neon-pink);
+}
+
+@media (max-width: 760px) {
+    body[data-theme="vhs"] .vhs-hud {
+        inset: 18px 18px auto;
+        font-size: 1.35rem;
+        letter-spacing: 1px;
+    }
+
+    body[data-theme="vhs"] .vhs-rec {
+        gap: 8px;
+    }
+
+    body[data-theme="vhs"] .vhs-rec-dot {
+        width: 12px;
+        height: 12px;
+        flex-basis: 12px;
+    }
+
+    body[data-theme="vhs"] .vhs-playback {
+        gap: 5px;
+    }
+}
+
+@media (max-width: 420px) {
+    body[data-theme="vhs"] .vhs-hud {
+        font-size: 1.05rem;
+    }
+}

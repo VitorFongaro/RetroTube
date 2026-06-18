@@ -1,0 +1,43 @@
+body[data-theme="cassette"] {
+    --bg-dark: #12100f;
+    --bg-card: #24211f;
+    --neon-pink: #ff4d5f;
+    --neon-cyan: #ffd34d;
+    --neon-purple: #6f6a61;
+    --text-light: #fff8df;
+    --text-dark: #12100f;
+    --border-light: #f2ead1;
+    --muted: #8f8575;
+    --scanline-bg: linear-gradient(rgba(255, 211, 77, 0.02) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 77, 95, 0.06), rgba(255, 211, 77, 0.04), rgba(0, 0, 0, 0.04));
+    --vignette-bg: radial-gradient(circle, transparent 56%, rgba(0, 0, 0, 0.45) 100%);
+    --button-shadow-color: rgba(255, 211, 77, 0.35);
+    --hover-shadow-color: rgba(255, 77, 95, 0.65);
+}
+
+body[data-theme="cassette"] .main-box {
+    border-style: double;
+}
+
+body[data-theme="cassette"] .main-box::before,
+body[data-theme="cassette"] .main-box::after {
+    content: "";
+    width: 78px;
+    height: 78px;
+    border: 6px solid var(--neon-purple);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, var(--bg-dark) 0 18%, transparent 19%),
+        repeating-conic-gradient(from 0deg, var(--neon-cyan) 0 12deg, transparent 12deg 24deg);
+    opacity: 0.36;
+    position: absolute;
+    bottom: 18px;
+    z-index: 1;
+}
+
+body[data-theme="cassette"] .main-box::before {
+    left: 28px;
+}
+
+body[data-theme="cassette"] .main-box::after {
+    right: 28px;
+}
